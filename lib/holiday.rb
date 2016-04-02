@@ -68,12 +68,9 @@ def all_supplies_in_holidays(holiday_hash)
  holiday_hash.each do |season, holidays|
      puts "#{season.to_s.capitalize}:"
             holidays.each do |holiday, items|
-            blank = " "
-            items.each {|item| blank << item + " "}
-            (holiday == :new_years) == true ? blank = blank.split.join(" ") : blank = blank.split.join(", ")
             holiday_words = ""
             holiday.to_s.tr("_", " ").split.each{|word| holiday_words << word.capitalize + " "}
-            puts "  #{holiday_words.strip}: #{blank}"
+            puts "  #{holiday_words.strip}: #{items.join(", ")}"
             end
     end
 end
